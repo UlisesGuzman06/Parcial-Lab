@@ -5,7 +5,7 @@ const yargs = require("yargs");
 const argv = yargs
   .option("file", {
     alias: "f",
-    describe: "Nombre del archivo donde se guardarán los productos",
+    describe: "Archivo JSON",
     type: "string",
     default: "productos.json",
   })
