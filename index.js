@@ -57,4 +57,3 @@ const datos = async () => {
   }
 };
 
-datos();
