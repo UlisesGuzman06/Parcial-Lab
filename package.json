@@ -1,0 +1,22 @@
+{
+  "name": "parcial-lb",
+  "version": "1.0.0",
+  "description": "Parcial Laboratorio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UlisesGuzman06/Parcial-Lab.git"
+  },
+  "author": "Ulises Guzman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UlisesGuzman06/Parcial-Lab/issues"
+  },
+  "homepage": "https://github.com/UlisesGuzman06/Parcial-Lab#readme",
+  "dependencies": {
+    "yargs": "^17.7.2"
+  }
+}
