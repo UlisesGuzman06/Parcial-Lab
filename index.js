@@ -16,37 +16,36 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-const datos = async () => {
+const CrearProductos = async () => {
   try {
-    rl.question("Nombre del producto: ", (nombre) => {
-      rl.question("Precio: ", (precio) => {
-        rl.question("Cantidad: ", (cantidad) => {
-          const nuevoProducto = {
-            nombre: nombre,
-            precio: precio,
-            cantidad: cantidad,
+    rl.question("Nombre del producto: ", (productName) => {
+      rl.question("Precio: ", (price) => {
+        rl.question("Cantidad: ", (quantity) => {
+          const newProduct = {
+            nombre: productName,
+            precio: price,
+            cantidad: quantity,
           };
 
-          const archivo = argv.file;
+          const filePath = argv.file;
 
-          // Verificar si el archivo existe
-          if (fs.existsSync(archivo)) {
-            const datosExistentes = fs.readFileSync(archivo, "utf-8");
-            const productos = JSON.parse(datosExistentes);
+          if (fs.existsSync(filePath)) {
+            const existingData = fs.readFileSync(filePath, "utf-8");
+            const products = JSON.parse(existingData);
 
-            productos.push(nuevoProducto);
+            products.push(newProduct);
 
-            fs.writeFileSync(archivo, JSON.stringify(productos, null, 2));
+            fs.writeFileSync(filePath, JSON.stringify(products, null, 2));
           } else {
-            const productos = [nuevoProducto];
-            fs.writeFileSync(archivo, JSON.stringify(productos, null, 2));
+            const products = [newProduct];
+            fs.writeFileSync(filePath, JSON.stringify(products, null, 2));
           }
 
-          const datosGuardados = fs.readFileSync(archivo, "utf-8");
-          const productosGuardados = JSON.parse(datosGuardados);
+          const savedData = fs.readFileSync(filePath, "utf-8");
+          const savedProducts = JSON.parse(savedData);
 
           console.log("Productos guardados:");
-          console.log(JSON.stringify(productosGuardados, null, 2));
+          console.log(JSON.stringify(savedProducts, null, 2));
 
           rl.close();
         });
@@ -56,4 +55,3 @@ const datos = async () => {
     console.error("Error al obtener los datos: ", error);
   }
 };
-
